@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">City Search</string>
+    <string name="back_button_description">Back Button</string>
+    <string name="loading_city_data">Loading city data…</string>
+    <string name="select_a_city">Select a City</string>
+    <string name="city_info">Info ciudad</string>
+    <string name="downloading_cities">Downloading cities…</string>
+    <string name="please_wait">Please wait…</string>
+    <string name="error_downloading">❌ Error: %1$s</string>
+    <string name="try_again">Try again</string>
+    <string name="error_unknown">Unknown Error</string>
+    <string name="loading_weather">Loading weather…</string>
+    <string name="weather_desc">🌤️ Weather: %1$s</string>
+    <string name="description">Description: %1$s</string>
+    <string name="temp_c">🌡️ Temp: %1$s°C</string>
+    <string name="humidity">💧 Humidity: %1$s</string>
+    <string name="City_detail">City: %1$s</string>
+    <string name="country_detail">País: %1$s</string>
+    <string name="lat_detail">Latitude: %1$s</string>
+    <string name="lon_detail">Longitude: %1$s</string>
+    <string name="fav_detail">Favorite: %1$s</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+</resources>
