@@ -25,9 +25,12 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
+import com.jg.citysearch.R
 import com.jg.citysearch.domain.model.City
 
 
@@ -56,17 +59,18 @@ fun CityPagingList(
                 search = it
                 onQueryChange(it)
             },
-            label = { Text("Buscar ciudad") },
+            label = { Text(stringResource(R.string.search_city)) },
             modifier = Modifier
                 .weight(1f)
                 .padding(8.dp)
-                .wrapContentHeight(),
+                .wrapContentHeight()
+                .testTag("searchField"),
             singleLine = true,
-            leadingIcon = { Icon(Icons.Default.Search, contentDescription = "Buscar") }
+            leadingIcon = { Icon(Icons.Default.Search, contentDescription = "Search") }
         )
         Spacer(modifier = Modifier.width(8.dp))
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            Text("Favoritas", style = MaterialTheme.typography.labelSmall)
+            Text(stringResource(R.string.favorites), style = MaterialTheme.typography.labelSmall)
             Switch(
                 checked = showOnlyFavorites,
                 onCheckedChange = onToggleFavorites

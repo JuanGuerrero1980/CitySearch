@@ -70,8 +70,8 @@ mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
 mockito = { module = "org.mockito:mockito-core", version.ref = "mockito" }
 truth = { module = "com.google.truth:truth", version.ref = "thruth" }
 core-testing = { module = "androidx.arch.core:core-testing", version.ref = "coreTesting" }
-
 paging-compose = { module = "androidx.paging:paging-compose", version.ref = "pagingCompose" }
+paging-testing = { module = "androidx.paging:paging-testing", version.ref = "pagingCompose" }
 
 maps-compose = { module = "com.google.maps.android:maps-compose", version.ref = "maps-compose" }
 play-services-maps = { module = "com.google.android.gms:play-services-maps", version.ref = "play-services-maps" }

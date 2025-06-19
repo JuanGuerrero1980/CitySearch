@@ -13,6 +13,7 @@ interface CityRepository {
     suspend fun isCitiesDownloaded(): Boolean
     suspend fun clearDownloadFlag()
     fun getPagedCities(query: String, onlyFavorites: Boolean): Flow<PagingData<City>>
+    fun getCities(query: String, onlyFavorites: Boolean): List<City>
     suspend fun setFavorite(city: City, isFavorite: Boolean)
     suspend fun getWeatherByCityLocation(lat: Double, lon: Double): Weather
 

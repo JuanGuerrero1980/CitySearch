@@ -75,6 +75,11 @@ class CityRepositoryImpl (
         }
     }
 
+    override fun getCities(
+        query: String,
+        onlyFavorites: Boolean
+    ): List<City> = cityDao.getCities(query, onlyFavorites).map { it.toDomainModel() }
+
     override suspend fun setFavorite(city: City, isFavorite: Boolean) {
         cityDao.setFavorite(city.id, isFavorite)
     }

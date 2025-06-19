@@ -2,6 +2,7 @@ package com.jg.citysearch.di
 
 import com.jg.citysearch.domain.repository.CityRepository
 import com.jg.citysearch.domain.usecase.DownloadCitiesUseCase
+import com.jg.citysearch.domain.usecase.GetCitiesUseCase
 import com.jg.citysearch.domain.usecase.GetCityByIdUseCase
 import com.jg.citysearch.domain.usecase.GetPagedCitiesUseCase
 import com.jg.citysearch.domain.usecase.GetWeatherByLocation
@@ -44,5 +45,11 @@ object UseCaseModule {
     @Singleton
     fun provideGetWeatherByLocationUseCase(repository: CityRepository): GetWeatherByLocation {
         return GetWeatherByLocation(repository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideGetCitiesUseCase(repository: CityRepository): GetCitiesUseCase {
+        return GetCitiesUseCase(repository)
     }
 }

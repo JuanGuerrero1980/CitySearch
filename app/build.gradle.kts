@@ -29,6 +29,8 @@ android {
             "WEATHER_API_KEY",
             "\"$weatherApiKey\""
         )
+        val googleApiKey = localProperties.getProperty("google_maps_key") ?: ""
+        manifestPlaceholders["googleMapsApiKey"] = googleApiKey
     }
 
     buildTypes {
@@ -89,6 +91,7 @@ dependencies {
 
     // Paging
     implementation(libs.paging.compose)
+    testImplementation(libs.paging.testing)
 
     // Map
     implementation(libs.maps.compose)

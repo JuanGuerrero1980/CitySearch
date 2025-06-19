@@ -2,7 +2,7 @@ package com.jg.citysearch.domain.usecase
 
 import com.jg.citysearch.domain.repository.CityRepository
 
-class DownloadCitiesUseCase(
+open class DownloadCitiesUseCase(
     private val cityRepository: CityRepository,
 ) {
 

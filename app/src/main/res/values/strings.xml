@@ -21,4 +21,6 @@
     <string name="fav_detail">Favorite: %1$s</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="search_city">Search city</string>
+    <string name="favorites">Favorites</string>
 </resources>

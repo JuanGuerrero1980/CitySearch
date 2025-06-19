@@ -28,4 +28,11 @@ interface CityDao {
 
     @Query("SELECT * FROM cities WHERE id = :id")
     suspend fun getCityById(id: Int): CityEntity?
+
+    @Query("""
+        SELECT * FROM cities
+        WHERE name LIKE :query || '%'
+        AND (:onlyFavorites = 0 OR isFavorite = 1)
+        ORDER BY name ASC, country ASC""")
+    fun getCities(query: String, onlyFavorites: Boolean): List<CityEntity>
 }
