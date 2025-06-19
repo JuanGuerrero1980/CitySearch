@@ -23,4 +23,6 @@
     <string name="no">No</string>
     <string name="search_city">Search city</string>
     <string name="favorites">Favorites</string>
+    <string name="error_loading_more_cities">Error loading cities: %1$s</string>
+    <string name="no_cities_found">No cities found</string>
 </resources>
