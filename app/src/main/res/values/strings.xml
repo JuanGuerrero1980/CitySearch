@@ -14,6 +14,7 @@
     <string name="description">Description: %1$s</string>
     <string name="temp_c">🌡️ Temp: %1$s°C</string>
     <string name="humidity">💧 Humidity: %1$s</string>
+    <string name="humidity_card">💧 Humidity</string>
     <string name="City_detail">City: %1$s</string>
     <string name="country_detail">País: %1$s</string>
     <string name="lat_detail">Latitude: %1$s</string>

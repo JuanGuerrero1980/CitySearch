@@ -118,4 +118,5 @@ fun WeatherResponse.toDomainModel(): Weather =
         temp = this.main.temp,
         humidity = this.main.humidity,
         description = this.weather.firstOrNull()?.description ?: "",
+        icon = this.weather.firstOrNull()?.icon ?: "",
     )

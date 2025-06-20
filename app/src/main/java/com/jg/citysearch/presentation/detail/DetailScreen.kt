@@ -1,15 +1,14 @@
 package com.jg.citysearch.presentation.detail
 
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Close
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
@@ -24,13 +23,13 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.jg.citysearch.R
 import com.jg.citysearch.domain.model.City
 import com.jg.citysearch.domain.model.Weather
 import com.jg.citysearch.ui.utils.LoadingCity
 import com.jg.citysearch.ui.utils.Screen
+import com.jg.citysearch.ui.utils.WeatherSummaryCard
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -44,6 +43,7 @@ fun DetailScreen(
     val state = detailViewModel.state.collectAsState()
     val weather = detailViewModel.weather.collectAsState()
     val snackBarHostState = remember { SnackbarHostState() }
+    val scrollState = rememberScrollState()
     val title = rememberSaveable { mutableStateOf("") }
     LaunchedEffect(Unit) {
         detailViewModel.getCityById(cityId = cityId)
@@ -65,7 +65,11 @@ fun DetailScreen(
             },
             snackbarHost = { SnackbarHost(hostState = snackBarHostState) },
             content = { padding ->
-                Column(Modifier.padding(padding)) {
+                Column(
+                    Modifier
+                        .padding(padding)
+                        .verticalScroll(scrollState)
+                ) {
                     when (state.value) {
                         is DetailUIState.Error -> {
                             LaunchedEffect(Unit) {
@@ -95,34 +99,16 @@ fun DetailScreen(
 
 @Composable
 fun CityDetailContent(city: City, weather: Weather? = null) {
-    Column(modifier = Modifier.padding(16.dp)) {
-        Text(
-            stringResource(R.string.City_detail, city.name),
-            style = MaterialTheme.typography.headlineSmall
-        )
-        Text(
-            stringResource(R.string.country_detail, city.country),
-            style = MaterialTheme.typography.bodyLarge
-        )
-        Text(stringResource(R.string.lat_detail, city.latitude))
-        Text(stringResource(R.string.lon_detail, city.longitude))
-        Text(
-            stringResource(
-                R.string.fav_detail,
-                if (city.isFavorite) stringResource(R.string.yes) else stringResource(
-                    R.string.no
-                )
-            )
-        )
 
-        Spacer(modifier = Modifier.height(16.dp))
+    WeatherSummaryCard(
+        name = city.name,
+        location = city.country,
+        temperature = (weather?.temp ?: "N/A").toString(),
+        description = weather?.description ?: "N/A",
+        humidity = (weather?.humidity ?: "N/A").toString(),
+        icon = weather?.icon ?: "N/A",
+        favorite = city.isFavorite,
+        loading = weather == null,
+    )
 
-        if (weather != null) {
-            Text(stringResource(R.string.weather_desc, weather.main ?: "N/A"))
-            Text(stringResource(R.string.temp_c, weather.temp))
-            Text("${stringResource(R.string.humidity, weather.humidity)}%")
-        } else {
-            Text(stringResource(R.string.loading_weather))
-        }
-    }
 }

@@ -96,6 +96,9 @@ dependencies {
     // Map
     implementation(libs.maps.compose)
 
+    // Coil
+    implementation(libs.coil.compose)
+
     // Play Services
     implementation(libs.play.services.maps)
 

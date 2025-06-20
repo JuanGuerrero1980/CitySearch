@@ -27,6 +27,7 @@ An Android app to browse and search cities, view detailed information, mark favo
 - **Networking:** Retrofit
 - **Persistence:** Room
 - **Pagination:** Paging 3
+- **Image Loading:** Coil
 - **Dependency Injection:** Hilt
 - **Preferences Storage:** Jetpack DataStore
 - **Map:** Google Maps SDK
