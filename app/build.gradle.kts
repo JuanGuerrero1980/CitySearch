@@ -115,6 +115,7 @@ dependencies {
     // Thuth
     testImplementation(libs.truth)
     // Compose UI Tests
+    androidTestImplementation(libs.hilt.android.testing)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)

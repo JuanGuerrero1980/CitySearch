@@ -63,12 +63,9 @@ The project includes both **unit tests** and **integration tests**:
 
 ### ✅ Unit Tests
 
-- `CityUseCaseTest`: tests logic to determine whether cities should be downloaded.
-- `CityViewModelTest`: tests state updates, search handling, and favorite toggling.
-- Uses **JUnit4**, **Turbine**, and **Mockito/Kotlinx Coroutines Test**.
+- `DownloadCitiesUseCaseTest`
 
 ### 🧩 Integration Tests
 
-- `CityDaoTest`: tests Room queries with an in-memory database.
-- `CityRepositoryIntegrationTest`: uses real DAO and database to test interactions.
-- Covers: insertion, search filters, pagination, and favorite status.
+- `GetCitiesUseCaseTest`: tests Room queries with an in-memory database, uses real DAO and database to test interactions.
+- Covers: insertion, search filters.
